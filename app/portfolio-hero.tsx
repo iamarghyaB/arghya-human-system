@@ -129,14 +129,22 @@ export function Opening() {
 }
 
 export function PortfolioHero() {
+  const singlePhoto = process.env.PORTFOLIO_SINGLE_HERO !== '0';
+
   return (
-    <section className="hero" id="home" aria-labelledby="hero-title">
+    <section className={singlePhoto ? 'hero hero--photo' : 'hero'} id="home" aria-labelledby="hero-title">
       <div className="hero-scene">
+        {singlePhoto && (
+          <div className="hero-photo">
+            <Image src="/images/hero-single-preview.webp" alt="Arghya working at a computer in the university lab"
+              fill sizes="100vw" loading="eager" fetchPriority="high" />
+          </div>
+        )}
         <div className="hero-heading">
           <h1 id="hero-title" aria-label="Arghya Biswas"><span data-title>Arghya</span>{' '}<span data-title>Biswas</span></h1>
         </div>
 
-        <div className="deck-stage" data-deck-stage>
+        {!singlePhoto && <div className="deck-stage" data-deck-stage>
           <div className="deck-field" data-deck-field>
             {backgroundCards.map(({ style, angle, row, image, alt }) => (
               <figure className={`deck-slot deck-background ${style}`} key={style} data-card data-angle={angle} data-row={row}>
@@ -163,7 +171,7 @@ export function PortfolioHero() {
               </figure>
             ))}
           </div>
-        </div>
+        </div>}
 
       </div>
     </section>

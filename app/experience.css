@@ -139,6 +139,20 @@ html:has(.portfolio-experience) { scroll-padding-top: 0; }
   white-space: nowrap;
 }
 .hero h1 span { display: inline-block; }
+.hero-photo { position: absolute; inset: 0; }
+.hero-photo img { object-fit: cover; object-position: 62% 43%; }
+.hero-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, #000b, transparent 24%),
+    linear-gradient(90deg, #050507dd, #05050769 37%, transparent 69%),
+    linear-gradient(0deg, #000e, transparent 26%);
+}
+.hero--photo .hero-heading { inset: auto var(--gutter) clamp(52px, 10svh, 106px); text-align: left; }
+.portfolio-experience .hero--photo h1 { font-size: clamp(4rem, min(10.5vw, 20svh), 12rem); }
+.hero--photo h1 span { display: block; }
 .deck-stage {
   position: absolute;
   inset: calc(var(--hero-height) * var(--deck-top)) 0 auto;
@@ -381,6 +395,10 @@ html:has(.portfolio-experience) { scroll-padding-top: 0; }
   .hero-heading { top: clamp(103px, 15.3svh, 152px); }
   .portfolio-experience .hero h1 { font-size: clamp(3.5rem, 17vw, 7.9rem); line-height: .84; white-space: normal; }
   .hero h1 span { display: block; }
+  .portfolio-experience .hero--photo h1 { font-size: clamp(3.3rem, 16vw, 6.4rem); }
+  .hero--photo .hero-heading { bottom: clamp(37px, 7svh, 65px); }
+  .hero-photo img { object-position: 75% 42%; }
+  .hero-photo::after { background: linear-gradient(180deg, #000b, transparent 26%, transparent 45%, #000f); }
   .deck-field { --card-width: clamp(115px, 32vw, 168px); }
   .deck-builder { --x: -94%; --scale: .84; }
   .deck-human { --x: 94%; --scale: .83; }
