@@ -153,6 +153,7 @@ html:has(.portfolio-experience) { scroll-padding-top: 0; }
 .hero--photo .hero-heading { inset: auto var(--gutter) clamp(52px, 10svh, 106px); text-align: left; }
 .portfolio-experience .hero--photo h1 { font-size: clamp(4rem, min(10.5vw, 20svh), 12rem); }
 .hero--photo h1 span { display: block; }
+.hero-role { color: #f1e9ef; font-size: clamp(.88rem, 1.45vw, 1.18rem); font-weight: 600; }
 .deck-stage {
   position: absolute;
   inset: calc(var(--hero-height) * var(--deck-top)) 0 auto;
@@ -239,6 +240,34 @@ html:has(.portfolio-experience) { scroll-padding-top: 0; }
 .profile-copy p + p { margin-top: 12px; }
 .profile-copy .lead { margin: 0; color: #eee; font-weight: 650; font-size: clamp(1.05rem, 1.65vw, 1.38rem); }
 .profile-copy .text-link { color: var(--signal); margin-top: 14px; }
+
+.ventures-section { background: #131014; padding-bottom: clamp(54px, 8vw, 112px); }
+.ventures-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, .75fr);
+  align-items: end;
+  gap: clamp(18px, 4vw, 70px);
+  margin: clamp(34px, 6vw, 84px) 0 clamp(25px, 4vw, 54px);
+}
+.ventures-heading p, .venture-card p { color: #d5cbd4; line-height: 1.5; }
+.ventures-heading p { max-width: 40ch; }
+.ventures-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(12px, 2vw, 26px); }
+.venture-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: clamp(18px, 3vw, 42px);
+  border: 1px solid #634b61;
+  border-radius: clamp(12px, 1.5vw, 24px);
+  background: radial-gradient(ellipse at 0 0, #302230, #1a151c 75%);
+}
+.venture-card:nth-child(2) { border-color: #4e5369; background: radial-gradient(ellipse at 0 0, #22293b, #161820 75%); }
+.venture-meta { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px 14px; width: 100%; color: #dcc7d9; font: .75rem/1.4 var(--font-mono); text-transform: uppercase; }
+.venture-card h3 { font: 400 clamp(2.7rem, 5.4vw, 6rem)/.94 var(--font-display); letter-spacing: -.07em; }
+.venture-card p { max-width: 49ch; }
+.venture-card .tags { margin: 0 0 6px; }
+.venture-card .text-link { margin-top: auto; color: var(--signal); }
 
 .portfolio-experience .work, .portfolio-experience .process { background: var(--pink); color: #351a32; }
 .feature-chapter { position: relative; isolation: isolate; min-height: 100svh; padding-bottom: clamp(40px, 6vw, 88px); background: radial-gradient(ellipse at 33% 33%, #f4d0ee, #ebbae5 65%, #e3b4df); overflow: clip; }
@@ -373,6 +402,8 @@ html:has(.portfolio-experience) { scroll-padding-top: 0; }
 .contact-emblem svg { width: 62%; height: auto; }
 .portfolio-experience .contact-copy h2 { max-width: 36ch; font-size: clamp(1.1rem, 1.55vw, 1.5rem); line-height: 1.2; }
 .portfolio-experience .contact .contact-copy > p { margin: 0; max-width: 38ch; color: #c3bac1; font-size: .94rem; }
+.venture-contact { display: flex; justify-content: center; flex-wrap: wrap; gap: 7px 22px; }
+.venture-contact .text-link { color: var(--signal); }
 .contact-link { display: flex; justify-content: center; align-items: center; gap: .19em; border-bottom: 1px solid #6c626a; padding: 17px 0 30px; margin-top: clamp(37px, 6vw, 86px); color: #c2b8c0; }
 .contact-link:hover { color: var(--signal); }
 .contact-link svg { flex: none; color: var(--signal); }
@@ -411,6 +442,7 @@ html:has(.portfolio-experience) { scroll-padding-top: 0; }
   .profile-section { min-height: 0; }
   .profile-heading { margin-right: 0; }
   .profile-copy, .ahead-layout { grid-template-columns: 1fr; gap: 15px; }
+  .ventures-heading, .ventures-grid { grid-template-columns: 1fr; }
   .feature-heading { margin-top: 25px; }
   .feature-ghost { top: 33%; }
   .portfolio-experience .project.featured { grid-template-columns: 1fr; gap: 10px; }

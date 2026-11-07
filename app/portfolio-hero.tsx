@@ -142,6 +142,7 @@ export function PortfolioHero() {
         )}
         <div className="hero-heading">
           <h1 id="hero-title" aria-label="Arghya Biswas"><span data-title>Arghya</span>{' '}<span data-title>Biswas</span></h1>
+          {singlePhoto && <p className="hero-role">Full-stack developer &amp; Makezaa co-owner</p>}
         </div>
 
         {!singlePhoto && <div className="deck-stage" data-deck-stage>

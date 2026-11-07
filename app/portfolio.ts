@@ -5,9 +5,31 @@ export const profile = {
   github: 'https://github.com/iamarghyaB',
   linkedin: 'https://www.linkedin.com/in/-biswas-arghya',
   studio: 'https://www.makezaa.com/',
+  octetec: 'https://octetec.com/',
   instagram: 'https://www.instagram.com/arghya477/',
   facebook: 'https://www.facebook.com/arghya477',
 };
+
+export const ventures = [
+  {
+    name: 'Makezaa',
+    location: 'Dhaka, Bangladesh',
+    role: 'Co-owner',
+    summary: 'We build websites clients can update themselves, Shopify stores they can sell through, and custom apps for workflows that need their own software.',
+    services: ['WordPress', 'Shopify', 'Custom web development'],
+    website: profile.studio,
+    contact: 'https://www.makezaa.com/contact',
+  },
+  {
+    name: 'Octetec',
+    location: 'United Kingdom',
+    role: 'Co-lead',
+    summary: 'We help businesses connect their websites and stores to the systems they use day to day, from payment and checkout flows to custom tools for their teams.',
+    services: ['Websites & commerce', 'Business software', 'Payments & integrations'],
+    website: profile.octetec,
+    contact: 'https://octetec.com/contact',
+  },
+];
 
 export const personalProjects = [
   {
@@ -51,17 +73,18 @@ export const teamProjects = [
     slug: 'campusflow',
     name: 'CampusFlow',
     type: 'Bangladesh · Student productivity',
-    summary: 'A digital companion for Bangladesh University students that brings schedules, exams, notifications, and bus tools together.',
+    summary: 'Bangladesh University students can check class and exam schedules, find rooms, and look up bus routes in one place.',
     contribution: 'Makezaa team project · My role focused on marketing',
     stack: [],
     live: 'https://campusflow.makezaa.com/',
+    source: 'https://www.makezaa.com/projects/campusflow-bangladesh-university',
   },
   {
     number: '02',
     slug: 'an-noor',
     name: 'An-Noor',
     type: 'UK · Charity & donations',
-    summary: 'A responsive charity website with online donation workflows and integrated payments.',
+    summary: 'A website for a UK charity that explains its initiatives and lets supporters donate online through Stripe or PayPal.',
     contribution: 'Makezaa team delivery',
     stack: ['WordPress', 'Elementor Pro', 'WooCommerce', 'Stripe', 'PayPal'],
     live: 'https://annoor.co.uk/',
@@ -72,7 +95,7 @@ export const teamProjects = [
     slug: 'golden-touch',
     name: 'Golden Touch Contractors',
     type: 'US · Business website',
-    summary: 'A website for a New York roofing and exterior contractor, with clear service information, inquiry paths, and editable content.',
+    summary: 'A WordPress site for a Brooklyn roofing contractor. Customers can find services and send inquiries, and the team can update the site themselves.',
     contribution: 'Makezaa team delivery',
     stack: ['WordPress', 'PHP', 'HTML', 'CSS', 'JavaScript'],
     live: 'https://goldentouchcontractors.com/',
@@ -81,7 +104,7 @@ export const teamProjects = [
 ];
 
 export const toolSkillGroups = [
-  { id: 'frontend', title: 'Frontend', items: ['React', 'JavaScript', 'HTML & CSS', 'Tailwind CSS', 'Vite', 'DaisyUI', 'React Router', 'Data visualization'] },
+  { id: 'frontend', title: 'Frontend', items: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'HTML & CSS', 'Tailwind CSS', 'Vite', 'DaisyUI', 'React Router', 'Data visualization'] },
   { id: 'backend', title: 'Backend', items: ['Node.js', 'Express', 'REST APIs', 'Firebase Authentication', 'Debugging', 'Frontend–backend integration'] },
   { id: 'database', title: 'Database', items: ['MongoDB', 'SQLite', 'CRUD workflows'] },
   { id: 'delivery', title: 'Deployment', items: ['Git & GitHub', 'Netlify', 'Vercel'] },
@@ -93,10 +116,10 @@ export const skillGroups = [
 ];
 
 export const process = [
-  ['Understand the problem', 'Talk through who will use the product, what they need to accomplish, and where their current workflow gets in the way.'],
-  ['Define requirements', 'Agree on the essential user flows, the constraints, and what a useful first version needs to do.'],
-  ['Plan the application', 'Map the interface, data model, and API boundaries around those flows. Identify the decisions that will be expensive to change later.'],
-  ['Build interfaces and services', 'Connect the UI to the backend in working increments so the important paths can be tested early.'],
-  ['Test and refine', 'Check failure states, validation, responsiveness, and accessibility alongside the expected user journeys.'],
-  ['Deliver and improve', 'Deploy, gather feedback, and use what people actually do with the product to decide what to improve next.'],
+  ['Agree on the outcome', 'Find out who will use the product, what they need to do, and how the client will know the project worked.'],
+  ['Scope the first release', 'Decide whether a content-managed site, a Shopify store, or custom software fits the brief. Agree on what ships first.'],
+  ['Plan the main workflows', 'Map the steps people take and the data behind them. Identify any accounts, permissions, payments, or integrations the project needs.'],
+  ['Build and review together', 'Share a working version early so clients can try the main flows and give feedback while changes are still easy to make.'],
+  ['Test what matters', 'Check the important paths on mobile and desktop, including forms, sign-in, and checkout where they apply. Test what happens when something goes wrong.'],
+  ['Launch and hand over', 'Deploy the product, show the team how to use it, and document what they need to keep it running.'],
 ];

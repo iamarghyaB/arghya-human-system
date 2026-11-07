@@ -5,7 +5,7 @@ import { Opening, PortfolioHero } from './portfolio-hero';
 import { ProjectCard } from './project-card';
 import { SkillShowcase } from './skill-showcase';
 import { SystemDiagram } from './system-diagram';
-import { personalProjects, process, profile, teamProjects, toolSkillGroups } from './portfolio';
+import { personalProjects, process, profile, teamProjects, toolSkillGroups, ventures } from './portfolio';
 import { External, Icon, OrbitMark, Tags } from './ui';
 import './experience.css';
 
@@ -55,7 +55,7 @@ export default async function Home() {
       <header className="site-header">
         <div className="shell header-inner">
           <a href="#home" className="portfolio-mark" aria-label="Arghya Biswas home"><OrbitMark size={30} /><span>ARGHYA</span></a>
-          <p>Full-stack developer in Bangladesh.<br />I build web apps and study system design.</p>
+          <p>Based in Bangladesh. Working worldwide.<br />Websites, commerce, and custom software.</p>
           <a href="#work" className="button primary">Explore my work</a>
         </div>
       </header>
@@ -68,15 +68,14 @@ export default async function Home() {
           <div className="shell">
             <ChapterEdge number="01" title="About me" />
             <h2 className="display profile-heading">
-              <span data-line>Before the</span>
-              <span data-line>system, there’s</span>
-              <span data-line>a person.</span>
+              <span data-line>I build software.</span>
+              <span data-line>I run a studio.</span>
             </h2>
             <div className="profile-copy" data-reveal>
-              <p className="lead">I’m Arghya, a full-stack developer and Computer Science and Engineering student in Bangladesh.</p>
+              <p className="lead">I’m Arghya Biswas, a full-stack developer and co-owner of Makezaa. I also run Octetec with my business partner.</p>
               <div>
-                <p>I’ve spent about four years learning by building, from independent MERN applications to work with Makezaa, a digital studio in Bangladesh. That work has introduced me to client needs in the United States and United Kingdom and to the decisions that shape a product before development begins.</p>
-                <p>I’m most curious about how the pieces fit together, from the first screen someone sees to the services and data behind it.</p>
+                <p>I work with clients to figure out what they need and turn it into a website, store, or application. Sometimes the job is helping customers donate or send an inquiry. Sometimes it’s giving a team a better way to manage the work they do every day.</p>
+                <p>My hands-on work spans React interfaces, APIs, authentication, and databases. I’m studying computer science and engineering in Bangladesh, and I use my own projects to try ideas before bringing them into client work.</p>
                 {productSkills.length > 0 && <Tags items={productSkills} label="Product and collaboration skills" />}
                 <a className="text-link" href="/resume/">View résumé <Icon name="external" size={16} /></a>
               </div>
@@ -84,21 +83,43 @@ export default async function Home() {
           </div>
         </section>
 
+        <section id="businesses" className="ventures-section" aria-labelledby="businesses-title">
+          <div className="shell">
+            <ChapterEdge number="02" title="Business ventures" />
+            <div className="ventures-heading">
+              <h2 id="businesses-title" className="display"><span data-line>The businesses</span><span data-line>I help run.</span></h2>
+              <p>Makezaa is our development studio in Dhaka. Octetec is our UK-based digital business. The two share a development team, so what we learn delivering one project informs the next.</p>
+            </div>
+            <div className="ventures-grid">
+              {ventures.map((venture) => (
+                <article className="venture-card" key={venture.name} data-reveal>
+                  <div className="venture-meta"><span>{venture.location}</span><span>{venture.role}</span></div>
+                  <h3>{venture.name}</h3>
+                  <p>{venture.summary}</p>
+                  <Tags items={venture.services} label={`${venture.name} services`} />
+                  <External href={venture.website}>Explore {venture.name}</External>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section id="work" className="light work">
           <section className="feature-chapter" aria-labelledby="featured-title">
             <div className="shell">
-              <ChapterEdge number="02" title="Featured work" />
-              <h2 id="featured-title" className="display feature-heading"><span data-line>From idea</span><span data-line>to application.</span></h2>
+              <ChapterEdge number="03" title="Featured work" />
+              <h2 id="featured-title" className="display feature-heading"><span data-line>From brief</span><span data-line>to build.</span></h2>
               <div className="feature-ghost" aria-hidden="true" data-device-ghost>BUILD 01</div>
-              <ProjectCard project={featured.project} image={featured.image} featured />
+              <ProjectCard project={featured.project} image={featured.image} featured
+                sourceLabel={newest ? undefined : 'Makezaa case study'} />
             </div>
           </section>
           <section id="archive" className="archive-sheet" aria-labelledby="archive-title" data-sheet>
             <div className="shell">
-              <ChapterEdge number="03" title="Project archive" />
+              <ChapterEdge number="04" title="Project archive" />
               <div className="archive-heading">
                 <h2 id="archive-title" className="display"><span data-line>Client work.</span></h2>
-                <p>Projects I’ve worked on directly with clients, from understanding their needs to shaping what we built.</p>
+                <p>Work delivered for real organizations, from a UK charity taking donations online to a New York contractor making it easier for customers to get in touch.</p>
               </div>
               {clientWork.length > 0 && (
                 <section className="latest-work" aria-label="Latest client work">
@@ -110,7 +131,7 @@ export default async function Home() {
                   </div>
                 </section>
               )}
-              <p className="group-label team-label"><span className="signal-dot" /> MAKEZAA COLLABORATIONS <span>{teamProjects.length} PROJECTS</span></p>
+              <p className="group-label team-label"><span className="signal-dot" /> BUILT WITH THE MAKEZAA TEAM <span>{teamProjects.length} PROJECTS</span></p>
               <div className="team-list">
                 {teamProjects.map((project) => (
                   <details className="team-project" key={project.slug}>
@@ -139,10 +160,10 @@ export default async function Home() {
           </section>
           <section id="my-projects" className="archive-sheet personal-sheet" aria-labelledby="personal-title" data-sheet>
             <div className="shell">
-              <ChapterEdge number="04" title="Independent builds" />
+              <ChapterEdge number="05" title="Independent builds" />
               <div className="archive-heading">
                 <h2 id="personal-title" className="display"><span data-line>My projects.</span></h2>
-                <p>Apps I build on my own to test ideas and solve problems I’m curious about.</p>
+                <p>Independent builds where I can try a product idea and carry it all the way through the interface, backend, and deployment.</p>
               </div>
               <div className="project-grid">
                 {personalWork.map(({ id, project, image }) => (
@@ -157,11 +178,11 @@ export default async function Home() {
 
         <section className="light process" id="process">
           <div className="shell">
-            <ChapterEdge number="05" title="My process" />
+            <ChapterEdge number="06" title="My process" />
             <div className="process-grid">
               <div className="process-intro">
                 <h2 className="display"><span data-line>Start with</span><span data-line>the problem.</span></h2>
-                <p>I start with what someone is trying to do, then work outward to the interface, services, and data that make it possible.</p>
+                <p>Before I choose a stack, I ask what needs to work better for the people using it. That gives the client and the development team a clear basis for deciding what to build first.</p>
               </div>
               <div className="process-steps" data-reveal>
                 <p className="process-label"><OrbitMark size={19} /> How I build</p>
@@ -182,7 +203,7 @@ export default async function Home() {
 
         <section id="skills" className="skills">
           <div className="shell">
-            <ChapterEdge number="06" title="My toolkit" />
+            <ChapterEdge number="07" title="My toolkit" />
             <h2 className="display skill-heading"><span data-line>The tools</span><span data-line>I build with.</span></h2>
             <SkillShowcase groups={groups} />
           </div>
@@ -190,10 +211,10 @@ export default async function Home() {
 
         <section id="systems" className="systems">
           <div className="shell">
-            <ChapterEdge number="07" title="Thinking in systems" />
+            <ChapterEdge number="08" title="Thinking in systems" />
             <div className="section-intro">
               <h2 className="display"><span data-line>Beyond the screen.</span></h2>
-              <p>I’m actively studying system design, especially how data flows through an application and what changes as load grows. This conceptual exercise explores a typical read request.</p>
+              <p>What happens behind a page matters when it gets slow or fails. I’m studying those tradeoffs in system design. This interactive example follows a request through an API, a cache, and a database.</p>
             </div>
             <SystemDiagram />
           </div>
@@ -201,11 +222,11 @@ export default async function Home() {
 
         <section id="ahead" className="ahead-sheet light" data-sheet>
           <div className="shell">
-            <ChapterEdge number="08" title="The road ahead" />
+            <ChapterEdge number="09" title="The road ahead" />
             <div className="ahead-layout">
               <div>
-                <h2 className="display"><span data-line>I’m still</span><span data-line>becoming.</span></h2>
-                <p>I want to deepen my backend and architecture skills, work closely with product teams, and take more ownership of the decisions that make software reliable and maintainable.</p>
+                <h2 className="display"><span data-line>Build for</span><span data-line>what’s next.</span></h2>
+                <p>I want to build more software that teams can operate and extend after launch. My focus is backend architecture, dependable integrations, and making it easy for the next person to pick up the work.</p>
               </div>
               <figure className="ahead-image" data-reveal>
                 <Image src="/images/shore.webp" alt="Arghya standing by the sea at sunset" fill sizes="(max-width: 720px) 90vw, 48vw" />
@@ -216,11 +237,14 @@ export default async function Home() {
 
         <section id="contact" className="contact">
           <div className="shell">
-            <ChapterEdge number="09" title="Get in touch" />
+            <ChapterEdge number="10" title="Get in touch" />
             <div className="contact-copy" data-reveal>
               <div className="contact-emblem" aria-hidden="true"><OrbitMark size={64} /></div>
-              <h2>Have something worth building?</h2>
-              <p>I’d love to hear about engineering opportunities, product ideas, and the problems you’re working on.</p>
+              <h2>What would you like to build?</h2>
+              <p>Tell me who it’s for, what needs to work better, and when you’d like it live. I’m open to client projects and engineering collaborations.</p>
+              <div className="venture-contact">
+                {ventures.map((venture) => <External key={venture.name} href={venture.contact}>Contact {venture.name}</External>)}
+              </div>
             </div>
             <a className="display contact-link" aria-label="Connect on LinkedIn" href={profile.linkedin} target="_blank" rel="noopener noreferrer">
               <span data-line>Let’s talk</span><Icon name="external" size={25} />
@@ -231,6 +255,7 @@ export default async function Home() {
                 <a className="text-link" href="/resume/">Résumé <Icon name="external" size={16} /></a>
                 <External href={profile.github}>GitHub</External>
                 <External href={profile.studio}>Makezaa</External>
+                <External href={profile.octetec}>Octetec</External>
                 <External href={profile.instagram}>Instagram</External>
                 <External href={profile.facebook}>Facebook</External>
               </div>

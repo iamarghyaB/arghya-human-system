@@ -3,7 +3,7 @@ import { personalProjects, profile, skillGroups } from '../portfolio';
 import { Brand, External } from '../ui';
 import { PrintButton } from './print-button';
 
-export const metadata: Metadata = { title: 'Résumé', description: 'Résumé of Arghya Biswas, full-stack MERN developer based in Bangladesh.' };
+export const metadata: Metadata = { title: 'Résumé', description: 'Résumé of Arghya Biswas, full-stack developer, Makezaa co-owner, and Octetec co-lead.' };
 
 export default function Resume() {
   return (
@@ -16,16 +16,28 @@ export default function Resume() {
         <header>
           <p className="project-meta">FULL-STACK WEB DEVELOPMENT</p>
           <h1>{profile.name}</h1>
-          <p>{profile.role} · MERN Stack · {profile.location}</p>
+          <p>{profile.role} · Makezaa Co-Owner · {profile.location}</p>
           <div className="project-links">
             <External href={profile.linkedin}>LinkedIn</External>
             <External href={profile.github}>GitHub</External>
             <External href={profile.studio}>Makezaa</External>
+            <External href={profile.octetec}>Octetec</External>
           </div>
         </header>
         <section>
           <h2>Profile</h2>
-          <p>Full-stack developer and Computer Science and Engineering student with about four years of hands-on development across independent and collaborative projects. Experienced with responsive interfaces, REST APIs, authentication, and database-driven workflows. Currently studying system design and backend architecture.</p>
+          <p>Full-stack developer and computer science and engineering student with hands-on experience across independent apps and client projects. I work with clients to define what their website or application needs to do. My technical work covers responsive interfaces, REST APIs, authentication, and database workflows.</p>
+        </section>
+        <section>
+          <h2>Business ventures and client work</h2>
+          <article>
+            <h3>Makezaa · Co-owner</h3>
+            <p>I co-own a web development studio in Dhaka. Our team’s work includes An-Noor’s online donations, Golden Touch Contractors’ business website, and CampusFlow for Bangladesh University, where my contribution focused on marketing.</p>
+          </article>
+          <article>
+            <h3>Octetec · Co-lead</h3>
+            <p>I run this UK-based digital business with my partner. Our shared development team works on websites, online stores, and custom software that supports business operations.</p>
+          </article>
         </section>
         <section>
           <h2>Selected personal projects</h2>
@@ -38,10 +50,6 @@ export default function Resume() {
               <External href={project.source} label={`${project.name} source on GitHub`}>GitHub</External>
             </div>
           </article>)}
-        </section>
-        <section>
-          <h2>Collaborative experience</h2>
-          <p>Collaborated with Makezaa, a Bangladesh-based digital development studio with project work for clients in the United States and United Kingdom. Makezaa credited me for marketing work on CampusFlow, a digital companion for Bangladesh University students.</p>
         </section>
         <section>
           <h2>Skills</h2>

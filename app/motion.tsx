@@ -9,6 +9,7 @@ import { Icon, OrbitMark } from './ui';
 const navigation = [
   ['home', 'Home'],
   ['about', 'About'],
+  ['businesses', 'Businesses'],
   ['work', 'Featured Work'],
   ['archive', 'Client Work'],
   ['my-projects', 'My Projects'],

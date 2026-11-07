@@ -5,12 +5,15 @@ import '@fontsource-variable/bodoni-moda/wght-italic.css';
 import '@fontsource/ibm-plex-mono/latin-400.css';
 import './globals.css';
 
+const portfolioTitle = 'Arghya Biswas | Full-Stack Developer & Makezaa Co-Owner';
+const portfolioDescription = 'Arghya Biswas is a full-stack developer and Makezaa co-owner who helps run Octetec. Explore client websites, web applications, and independent software projects.';
+
 export const metadata: Metadata = {
-  title: { default: 'Arghya Biswas — Human / System', template: '%s | Arghya Biswas' },
-  description: 'Portfolio of Arghya Biswas, a full-stack MERN developer in Bangladesh. Explore personal projects, Makezaa collaborations, and his ongoing study of system design.',
+  title: { default: portfolioTitle, template: '%s | Arghya Biswas' },
+  description: portfolioDescription,
   openGraph: {
-    title: 'Arghya Biswas — Human / System',
-    description: 'Full-stack developer, product-minded builder, and student of system design.',
+    title: portfolioTitle,
+    description: portfolioDescription,
     type: 'website',
   },
 };
