@@ -5,7 +5,7 @@ import { Opening, PortfolioHero } from './portfolio-hero';
 import { ProjectCard } from './project-card';
 import { SkillShowcase } from './skill-showcase';
 import { SystemDiagram } from './system-diagram';
-import { personalProjects, process, profile, skillGroups, teamProjects } from './portfolio';
+import { personalProjects, process, profile, teamProjects, toolSkillGroups } from './portfolio';
 import { External, Icon, OrbitMark, Tags } from './ui';
 import './experience.css';
 
@@ -41,11 +41,12 @@ export default async function Home() {
     project: campusFlow,
     image: { src: '/images/campusflow-phone.webp', alt: 'CampusFlow homepage on a phone screen' },
   };
-  const groups = skillGroups.map(({ id, title, items }) => ({
+  const groups = toolSkillGroups.map(({ id, title, items }) => ({
     id,
     title,
     items: [...items, ...skills.filter((skill) => skill.group === id).map((skill) => skill.name)],
   }));
+  const productSkills = skills.filter((skill) => skill.group === 'product').map((skill) => skill.name);
 
   return (
     <div className="portfolio-experience">
@@ -76,6 +77,7 @@ export default async function Home() {
               <div>
                 <p>I’ve spent about four years learning by building, from independent MERN applications to work with Makezaa, a digital studio in Bangladesh. That work has introduced me to client needs in the United States and United Kingdom and to the decisions that shape a product before development begins.</p>
                 <p>I’m most curious about how the pieces fit together, from the first screen someone sees to the services and data behind it.</p>
+                {productSkills.length > 0 && <Tags items={productSkills} label="Product and collaboration skills" />}
                 <a className="text-link" href="/resume/">View résumé <Icon name="external" size={16} /></a>
               </div>
             </div>

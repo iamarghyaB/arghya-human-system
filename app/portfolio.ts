@@ -80,10 +80,15 @@ export const teamProjects = [
   },
 ];
 
-export const skillGroups = [
+export const toolSkillGroups = [
   { id: 'frontend', title: 'Frontend', items: ['React', 'JavaScript', 'HTML & CSS', 'Tailwind CSS', 'Vite', 'DaisyUI', 'React Router', 'Data visualization'] },
-  { id: 'backend', title: 'Backend & data', items: ['Node.js', 'Express', 'REST APIs', 'MongoDB', 'Firebase Authentication', 'CRUD workflows'] },
-  { id: 'delivery', title: 'Development & delivery', items: ['Git & GitHub', 'Debugging', 'Frontend–backend integration', 'Netlify', 'Vercel'] },
+  { id: 'backend', title: 'Backend', items: ['Node.js', 'Express', 'REST APIs', 'Firebase Authentication', 'Debugging', 'Frontend–backend integration'] },
+  { id: 'database', title: 'Database', items: ['MongoDB', 'SQLite', 'CRUD workflows'] },
+  { id: 'delivery', title: 'Deployment', items: ['Git & GitHub', 'Netlify', 'Vercel'] },
+] as const;
+
+export const skillGroups = [
+  ...toolSkillGroups,
   { id: 'product', title: 'Product & collaboration', items: ['Feature planning', 'Usability', 'Client communication', 'SEO', 'Digital marketing'] },
 ];
 

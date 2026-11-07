@@ -337,9 +337,6 @@ html:has(.portfolio-experience) { scroll-padding-top: 0; }
 @keyframes badge-rise { from { opacity: .2; transform: translateY(24px) scale(.88) rotate(-7deg); } }
 .skill-photo { position: relative; width: min(100%, 400px); aspect-ratio: 4 / 3; overflow: hidden; border: 1px solid #786579; border-radius: 13px; background: #242024; box-shadow: 0 18px 36px #0007; }
 .skill-photo img { object-fit: cover; }
-.skill-emblem { display: grid; place-items: center; width: clamp(130px, 19vw, 235px); aspect-ratio: 1; border-radius: 21%; color: #63355d; background: repeating-radial-gradient(ellipse at 20% 120%, #f0b8e4 0 14px, #d98bc8 15px 29px); transform: rotate(-12deg); box-shadow: 0 22px 45px #0007; }
-.skill-emblem svg { width: 61%; height: auto; }
-[data-skill=product] .skill-emblem { color: #314e3b; background: repeating-linear-gradient(40deg, #afd3a8 0 20px, #6ca889 21px 41px); }
 .skill-art > span { color: #c5bac4; font: .82rem var(--font-mono); }
 .skill-description h3 { color: #fff; font: 400 clamp(2.25rem, 4.35vw, 4.6rem)/.92 var(--font-display); letter-spacing: -.06em; }
 .skill-description .tags li { border-color: #61555e; color: #ddd4dd; border-radius: 99px; overflow-wrap: anywhere; }

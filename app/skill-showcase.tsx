@@ -1,11 +1,14 @@
 import Image from 'next/image';
-import { OrbitMark, Tags } from './ui';
+import type { toolSkillGroups } from './portfolio';
+import { Tags } from './ui';
 
-type SkillGroup = { id: string; title: string; items: string[] };
+type SkillGroupId = typeof toolSkillGroups[number]['id'];
+type SkillGroup = { id: SkillGroupId; title: string; items: string[] };
 
-const skillPhotos: Partial<Record<string, { src: string; alt: string }>> = {
-  frontend: { src: '/images/skill-frontend.webp', alt: 'Arghya writing code with a code editor open on his monitor' },
-  backend: { src: '/images/skill-backend.webp', alt: 'Arghya working at a desktop computer in the university lab' },
+const skillPhotos: Record<SkillGroupId, { src: string; alt: string }> = {
+  frontend: { src: '/images/skill-frontend.webp', alt: 'Arghya in a navy suit against a dark background' },
+  backend: { src: '/images/skill-backend.webp', alt: 'Arghya in a navy suit in an office hallway' },
+  database: { src: '/images/skill-database.webp', alt: 'Arghya wearing sunglasses and a black jacket on Saint Martin’s Island' },
   delivery: { src: '/images/skill-delivery.webp', alt: 'Arghya working alongside classmates on laptops in the lab' },
 };
 
@@ -17,8 +20,13 @@ export function SkillShowcase({ groups }: { groups: SkillGroup[] }) {
         <div className="skill-choice" key={id}>
           <input type="radio" name="skill-category" id={`skill-${id}`} defaultChecked={index === 0} aria-controls={`skill-panel-${id}`} />
           <label htmlFor={`skill-${id}`}>{title}</label>
-          <div className="skill-panel" id={`skill-panel-${id}`} data-skill={id}>
-            <SkillArtwork photo={skillPhotos[id]} number={index + 1} />
+          <div className="skill-panel" id={`skill-panel-${id}`}>
+            <div className="skill-art">
+              <div className="skill-photo">
+                <Image {...skillPhotos[id]} fill sizes="(max-width: 440px) 90vw, 400px" />
+              </div>
+              <span aria-hidden="true">( {String(index + 1).padStart(2, '0')} )</span>
+            </div>
             <div className="skill-description">
               <h3>{title}</h3>
               <Tags items={items} label="Skills" />
@@ -27,18 +35,5 @@ export function SkillShowcase({ groups }: { groups: SkillGroup[] }) {
         </div>
       ))}
     </fieldset>
-  );
-}
-
-function SkillArtwork({ photo, number }: { photo?: { src: string; alt: string }; number: number }) {
-  return (
-    <div className="skill-art">
-      {photo ? (
-        <div className="skill-photo">
-          <Image {...photo} fill sizes="(max-width: 440px) 90vw, 400px" />
-        </div>
-      ) : <div className="skill-emblem" aria-hidden="true"><OrbitMark size={124} /></div>}
-      <span aria-hidden="true">( {String(number).padStart(2, '0')} )</span>
-    </div>
   );
 }
